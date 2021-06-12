@@ -27,7 +27,7 @@ $(CSS_NODE_MODULES): $(CSS_PACKAGE_JSON) $(CSS_YARN_LOCK)
 	touch $@
 
 $(DIST_CSS_DEV_GLOBAL): $(CSS_NODE_MODULES) | $(DIST_DIR)
-	$(CSS_YARN) run webpack
+	$(CSS_YARN) run webpack --env=dev
 
 $(DIST_CSS_DEV_SCOPED): $(CSS_NODE_MODULES) | $(DIST_DIR)
 	$(CSS_YARN) run webpack --env=scoped
