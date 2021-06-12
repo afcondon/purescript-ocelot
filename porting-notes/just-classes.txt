@@ -1,206 +1,67 @@
-"-mb-1"
-"-mb-40"
-"absolute"
-"bg-black-10"
-"bg-black-modal-a90"
-"bg-blue-88"
-"bg-grey-50-a20"
-"bg-grey-50"
-"bg-grey-70-a30"
-"bg-grey-80"
-"bg-grey-90"
-"bg-grey-95"
-"bg-grey-97"
-"bg-transparent"
-"bg-white"
-"block"
-"bold"
-"border-2"
-"border-b-2"
-"border-b"
-"border-black-10"
-"border-blue-88"
-"border-collapse"
-"border-grey-50-a20"
-"border-grey-70-a30"
-"border-grey-80"
-"border-grey-90"
-"border-grey-95"
-"border-l-2"
-"border-l"
-"border-r-2"
-"border-r"
-"border-solid"
-"border-t-2"
-"border-t"
-"border-transparent"
-"border"
-"cc-blue-88"
-"clearfix"
-"cn-pagination"
-"container"
-"content-box"
-"cursor-pointer"
-"fade-in"
-"fixed"
-"flex-1"
-"flex-2"
-"flex-3"
-"flex-col"
-"flex-initial"
-"flex-none"
-"flex-row"
-"flex-shrink"
-"flex"
-"font-light"
-"font-medium"
-"font-normal"
-"group"
-"h-0"
-"h-10"
-"h-12"
-"h-16"
-"h-24"
-"h-30"
-"h-4"
-"h-5"
-"h-6"
-"h-8"
-"h-full"
-"hidden"
-"inline-block"
-"inline-flex"
-"invisible"
-"items-center"
-"items-end"
-"items-start"
-"items-stretch"
-"justify-between"
-"justify-center"
-"leading-loose"
-"list-reset"
-"m-1"
-"m-6"
-"m-auto"
-"max-h-0"
-"max-h-120"
-"max-h-160"
-"max-h-80"
-"max-h-full"
-"max-w-12"
-"max-w-160"
-"max-w-lg"
-"mb-0"
-"mb-10"
-"mb-6"
-"mb-8"
-"min-h-20"
-"min-h-40"
-"min-w-50"
-"ml-auto"
-"mr-1"
-"mr-3"
-"mr-auto"
-"mr-px"
-"mt-0"
-"mt-1"
-"mx-auto"
-"my-1"
-"my-20"
-"my-px"
-"no-content"
-"no-outline"
-"no-underline"
-"offscreen"
-"opacity-0"
-"opacity-1"
-"opacity-100"
-"order-start"
-"outline-none"
-"overflow-auto"
-"overflow-hidden"
-"overflow-y-auto"
-"overflow-y-scroll"
-"p-1"
-"p-4"
-"p-5"
-"p-6"
-"p-8"
-"pagination" -> 
-"pb-6"
-"pin-b"       -> "bottom-0"
-"pin-l-full"  -> "left-full"
-"pin-l"       -> "left-0"
-"pin-r"       -> "right-0"
-"pin-t-full"  -> "right-full"
-"pin-t"       -> "top-0"
-"pin-x"       -> "inset-x-0"
-"pin"         -> "inset-0"
-"pl-1"
-"pl-3"
-"pr-1"
-"pr-2"
-"pr-3"
-"pt-3"
-"pt-5"
-"px-1"
-"px-2"
-"px-3"
-"px-4"
-"px-5"
-"px-6"
-"py-1"
-"py-2"
-"py-4"
-"relative"
-"rounded-b"
-"rounded-full"
-"rounded-l"
-"rounded-lg"
-"rounded-r"
-"rounded-sm"
-"rounded-t"
-"rounded"
-"self-end"
-"shadow-md"
-"shadow"
-"slide-down"
-"text-2xl"
-"text-3xl"
-"text-black-20"
-"text-blue-75"
-"text-blue-82"
-"text-center"
-"text-grey-50"
-"text-grey-70"
-"text-grey-80"
-"text-grey-light"
-"text-left"
-"text-lg"
-"text-red"
-"text-sm"
-"text-white"
-"text-xl"
-"text-xs"
-"tracking-wide"
-"transition-1/2-out"
-"transition-1/4-in"
-"transition-1/4-out"
-"transition-1/4"
-"transition-1/8"
-"uppercase"
-"visible"
-"w-0"
-"w-12"
-"w-4"
-"w-40"
-"w-5"
-"w-6"
-"w-8"
-"w-90"
-"w-full"
-"whitespace-no-wrap"
-"z-10"
-"z-20"
-"z-50"
-"z-60"
+"bg-black-10"        -> not present in defaults
+"bg-black-modal-a90" -> not present in defaults
+"bg-blue-88"         -> not present in defaults
+"bg-grey-50-a20"     -> not present in defaults
+"bg-grey-50"         -> "bg-gray-50"
+"bg-grey-70-a30"     -> not present in defaults
+"bg-grey-80"         -> not present in defaults
+"bg-grey-90"         -> not present in defaults
+"bg-grey-95"         -> not present in defaults
+"bg-grey-97"         -> not present in defaults
+"bold"               -> not present in defaults
+"border-black-10"    -> 
+"border-blue-88"     -> 
+"border-grey-50-a20" -> 
+"border-grey-70-a30" -> 
+"border-grey-80"     -> 
+"border-grey-90"     -> 
+"border-grey-95"     -> 
+"cc-blue-88"         -> ???
+"clearfix"           -> "flow-root"
+"cn-pagination"      -> from the prefix it's clearly particular to Ocelot
+"content-box"        -> "box-content"
+"fade-in"            ->
+"flex-2"             -> 
+"flex-3"             -> 
+"flex-shrink"        -> "flex-initial"
+"group"              -> think this might have changed to group-hover, group-focus
+"h-30"               -> not present in defaults
+"list-reset"         -> ???
+"max-h-120"          ->
+"max-h-160"          ->
+"max-w-12"           ->
+"max-w-160"          ->
+"min-h-20"           -> only min-h-0 / min-h-full / min-h-screen in Tailwind 2
+"min-h-40"           -> only min-h-0 / min-h-full / min-h-screen in Tailwind 2
+"min-w-50"           -> only min-w-0 / min-w-full / min-w-min / min-w-max in Tailwind 2
+"no-content"         -> ???
+"no-outline"         -> "outline-none"
+"offscreen"          ->
+"opacity-1"          ->
+"order-start"        -> is this a flex order thing? can't find it in tailwind 0.7
+"pagination"         -> ???
+"pin-b"              -> "bottom-0"
+"pin-l-full"         -> "left-full"
+"pin-l"              -> "left-0"
+"pin-r"              -> "right-0"
+"pin-t-full"         -> "right-full"
+"pin-t"              -> "top-0"
+"pin-x"              -> "inset-x-0"
+"pin"                -> "inset-0"
+"slide-down"         -> 
+"text-black-20"      ->
+"text-blue-75"       ->
+"text-blue-82"       ->
+"text-grey-50"       -> "text-gray-50"
+"text-grey-70"       -> 
+"text-grey-80"       ->
+"text-grey-light"    ->
+"text-red"           ->
+"transition-1/2-out" -> ???
+"transition-1/4-in"  -> ???
+"transition-1/4-out" -> ???
+"transition-1/4"     -> ???
+"transition-1/8"     -> ???
+"w-90"               -> 
+"whitespace-no-wrap" -> "whitespace-nowrap"
+"z-60"               -> 
