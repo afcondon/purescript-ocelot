@@ -1,8 +1,24 @@
+"bg-grey-50"         -> "bg-gray-50"
+"clearfix"           -> "flow-root"
+"content-box"        -> "box-content"
+"flex-shrink"        -> "flex-initial"
+"no-outline"         -> "outline-none"
+"pin-b"              -> "bottom-0"
+"pin-l-full"         -> "left-full"
+"pin-l"              -> "left-0"
+"pin-r"              -> "right-0"
+"pin-t-full"         -> "right-full"
+"pin-t"              -> "top-0"
+"pin-x"              -> "inset-x-0"
+"pin"                -> "inset-0"
+"text-grey-50"       -> "text-gray-50"
+"whitespace-no-wrap" -> "whitespace-nowrap"
+
+
 "bg-black-10"        -> not present in defaults
 "bg-black-modal-a90" -> not present in defaults
 "bg-blue-88"         -> not present in defaults
 "bg-grey-50-a20"     -> not present in defaults
-"bg-grey-50"         -> "bg-gray-50"
 "bg-grey-70-a30"     -> not present in defaults
 "bg-grey-80"         -> not present in defaults
 "bg-grey-90"         -> not present in defaults
@@ -17,13 +33,10 @@
 "border-grey-90"     -> 
 "border-grey-95"     -> 
 "cc-blue-88"         -> ???
-"clearfix"           -> "flow-root"
 "cn-pagination"      -> from the prefix it's clearly particular to Ocelot
-"content-box"        -> "box-content"
 "fade-in"            ->
 "flex-2"             -> 
 "flex-3"             -> 
-"flex-shrink"        -> "flex-initial"
 "group"              -> think this might have changed to group-hover, group-focus
 "h-30"               -> not present in defaults
 "list-reset"         -> ???
@@ -35,24 +48,14 @@
 "min-h-40"           -> only min-h-0 / min-h-full / min-h-screen in Tailwind 2
 "min-w-50"           -> only min-w-0 / min-w-full / min-w-min / min-w-max in Tailwind 2
 "no-content"         -> ???
-"no-outline"         -> "outline-none"
 "offscreen"          ->
 "opacity-1"          ->
 "order-start"        -> is this a flex order thing? can't find it in tailwind 0.7
 "pagination"         -> ???
-"pin-b"              -> "bottom-0"
-"pin-l-full"         -> "left-full"
-"pin-l"              -> "left-0"
-"pin-r"              -> "right-0"
-"pin-t-full"         -> "right-full"
-"pin-t"              -> "top-0"
-"pin-x"              -> "inset-x-0"
-"pin"                -> "inset-0"
 "slide-down"         -> 
 "text-black-20"      ->
 "text-blue-75"       ->
 "text-blue-82"       ->
-"text-grey-50"       -> "text-gray-50"
 "text-grey-70"       -> 
 "text-grey-80"       ->
 "text-grey-light"    ->
@@ -63,5 +66,4 @@
 "transition-1/4"     -> ???
 "transition-1/8"     -> ???
 "w-90"               -> 
-"whitespace-no-wrap" -> "whitespace-nowrap"
 "z-60"               -> 
