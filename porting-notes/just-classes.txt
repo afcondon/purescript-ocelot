@@ -1,8 +1,4 @@
-"bg-grey-50"         -> "bg-gray-50"
-"clearfix"           -> "flow-root"
-"content-box"        -> "box-content"
 "flex-shrink"        -> "flex-initial"
-"no-outline"         -> "outline-none"
 "pin-b"              -> "bottom-0"
 "pin-l-full"         -> "left-full"
 "pin-l"              -> "left-0"
@@ -11,53 +7,19 @@
 "pin-t"              -> "top-0"
 "pin-x"              -> "inset-x-0"
 "pin"                -> "inset-0"
-"text-grey-50"       -> "text-gray-50"
+"pin-t-full"         -> "top-full"
+"pin-r-full"         -> "right-full"
+"pin-b-full"         -> "bottom-full"
+"pin-l-full"         -> "left-full"
+"-pin-b-40"          -> "-bottom-40"
 "whitespace-no-wrap" -> "whitespace-nowrap"
+"list-reset"         -> removed in 1.0
 
 
-"bg-black-10"        -> not present in defaults
-"bg-black-modal-a90" -> not present in defaults
-"bg-blue-88"         -> not present in defaults
-"bg-grey-50-a20"     -> not present in defaults
-"bg-grey-70-a30"     -> not present in defaults
-"bg-grey-80"         -> not present in defaults
-"bg-grey-90"         -> not present in defaults
-"bg-grey-95"         -> not present in defaults
-"bg-grey-97"         -> not present in defaults
 "bold"               -> not present in defaults
-"border-black-10"    -> 
-"border-blue-88"     -> 
-"border-grey-50-a20" -> 
-"border-grey-70-a30" -> 
-"border-grey-80"     -> 
-"border-grey-90"     -> 
-"border-grey-95"     -> 
-"cc-blue-88"         -> ???
 "cn-pagination"      -> from the prefix it's clearly particular to Ocelot
-"fade-in"            ->
-"flex-2"             -> 
-"flex-3"             -> 
-"group"              -> think this might have changed to group-hover, group-focus
-"h-30"               -> not present in defaults
-"list-reset"         -> ???
-"max-h-120"          ->
-"max-h-160"          ->
-"max-w-12"           ->
-"max-w-160"          ->
-"min-h-20"           -> only min-h-0 / min-h-full / min-h-screen in Tailwind 2
-"min-h-40"           -> only min-h-0 / min-h-full / min-h-screen in Tailwind 2
-"min-w-50"           -> only min-w-0 / min-w-full / min-w-min / min-w-max in Tailwind 2
-"no-content"         -> ???
-"offscreen"          ->
-"opacity-1"          ->
-"order-start"        -> is this a flex order thing? can't find it in tailwind 0.7
+"opacity-1"          -> surely a mistake, lowest is 0.05
 "pagination"         -> ???
-"slide-down"         -> 
-"text-black-20"      ->
-"text-blue-75"       ->
-"text-blue-82"       ->
-"text-grey-70"       -> 
-"text-grey-80"       ->
 "text-grey-light"    ->
 "text-red"           ->
 "transition-1/2-out" -> ???
@@ -65,5 +27,18 @@
 "transition-1/4-out" -> ???
 "transition-1/4"     -> ???
 "transition-1/8"     -> ???
-"w-90"               -> 
 "z-60"               -> 
+
+
+"no-content"         -> from tailwind.config.js
+"clearfix"           -> from tailwind.config.js -- "flow-root"
+"content-box"        -> from tailwind.config.js
+"strike-through"     -> from tailwind.config.js
+"fade-in"            -> from tailwind.config.js
+"flex-2"             -> from tailwind.config.js
+"flex-3"             -> from tailwind.config.js
+"order-start"        -> from tailwind.config.js
+"cc-blue-88"         -> from tailwind.config.js
+"no-outline"         -> from tailwind.config.js
+"offscreen"          -> from tailwind.config.js
+"slide-down"         -> from tailwind.config.js

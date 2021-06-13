@@ -1,109 +1,3 @@
-field
-  :: ∀ p i
-   . FieldConfig p i
-  -> Array (HH.IProp HTMLdiv i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-field config iprops html =
-  field'
-    config
-    iprops
-    ( HH.div [ css "my-1" ] html )
-
-
-fieldSmall
-  :: ∀ p i
-   . FieldConfig p i
-  -> Array (HH.IProp HTMLdiv i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-fieldSmall config iprops html =
-  field'
-    config
-    iprops
-    ( HH.div [ css "my-1 md:w-1/4" ] html )
-
-fieldMid
-  :: ∀ p i
-   . FieldConfig p i
-  -> Array (HH.IProp HTMLdiv i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-fieldMid config iprops html =
-  field'
-    config
-    iprops
-    ( HH.div [ css "my-1 md:w-1/2" ] html )
-
-fieldset
-  :: ∀ p i
-   . FieldConfig p i
-  -> Array (HH.IProp HTMLdiv i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-fieldset config iprops html =
-  HH.div
-    ( [ HP.classes fieldClasses ] <&> iprops )
-    [ HH.fieldset
-      []
-      [ HH.legend
-        [ HP.classes labelClasses ]
-        [ HH.fromPlainHTML config.label ]
-      , HH.div
-        [ css "my-1" ]
-        html
-      , error_ config.error
-      , helpText_ config.helpText
-      ]
-    ]
-
-
-formPanel
-  :: ∀ p i
-   . FormPanelProps
-  -> Array (HH.IProp HTMLbutton i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-formPanel props iprops html =
-  HH.div
-    [ HP.class_ (HH.ClassName "w-full") ]
-    [ HH.div
-        [ HP.classes contentClasses ]
-        html
-    , HH.button
-        (iprops <> [ HP.classes buttonClasses ])
-        [ (HH.fromPlainHTML (props.renderToggle props.isOpen)) ]
-    ]
-  where
-    contentClasses =
-      if props.isOpen
-        then [ HH.ClassName "mb-6" ]
-        else [ HH.ClassName "hidden" ]
-
-stickyFormHeader
-  :: ∀ p i page
-   . Eq page
-  => FormHeaderProps p i
-  -> NavigationTab.TabConfig page
-  -> HH.HTML p i
-stickyFormHeader hConfig tConfig =
-  HH.div
-    [ HP.class_ $ HH.ClassName "h-40" ]
-    [ HH.div
-      [ HP.classes Layout.stickyClasses ]
-      [ formHeader hConfig
-      , NavigationTab.navigationTabs tConfig [ HP.class_ $ HH.ClassName "px-16" ]
-      ]
-    ]
-
-stickyHeader_ :: ∀ p i. FormHeaderProps p i -> HH.HTML p i
-stickyHeader_ config =
-  HH.div
-    [ HP.class_ $ HH.ClassName "h-24" ]
-    [ HH.div
-      [ HP.classes Layout.stickyClasses ]
-      [ formHeader config ]
-    ]
 
 formHeader :: ∀ p i. FormHeaderProps p i -> HH.HTML p i
 formHeader props =
@@ -119,7 +13,7 @@ formHeader props =
     [ HH.h2
       [ css "flex-1 font-medium" ]
         [ HH.span
-            [ css "text-lg text-grey-70 mr-4" ]
+            [ css "text-lg text-grey-70 mr-4" ] -- TODO text-grey-70
             props.name
         , HH.span
             [ css "text-lg text-white" ]
@@ -147,22 +41,11 @@ hover props anchors html hoverHtml =
   where
     anchorClasses :: Array HoverAnchor -> Array HH.ClassName
     anchorClasses = map $ HH.ClassName <<< anchorClass
-    anchorClass Left = "pin-r-full"
-    anchorClass Right = "pin-l-full"
-    anchorClass Top = "pin-b-full"
-    anchorClass Bottom = "pin-t-full"
+    anchorClass Left = "pin-r-full" -- TODO pin
+    anchorClass Right = "pin-l-full" -- TODO pin
+    anchorClass Top = "pin-b-full" -- TODO pin
+    anchorClass Bottom = "pin-t-full" -- TODO pin
 
-
-dropdownButton
-  :: ∀ p r i
-   . (Array (IProp r i) -> Array (HH.HTML p i) -> HH.HTML p i)
-  -> Array (IProp r i)
-  -> Array (HH.HTML p i)
-  -> HH.HTML p i
-dropdownButton button iprops html =
-  button
-    ( [ css "font-medium flex items-center" ] <&> iprops )
-    $ html <> [ Icon.caratDown [ css "ml-3 text-xs" ] ]
 
 dropdownItem
   :: ∀ p r i
@@ -181,12 +64,12 @@ dropdownItem elem props html selected highlighted =
     itemClasses =
       liClasses
       <> [ HH.ClassName "flex" ]
-      <> ( if highlighted then [ HH.ClassName "bg-grey-lighter" ] else [] )
+      <> ( if highlighted then [ HH.ClassName "bg-grey-lighter" ] else [] ) -- TODO
       <> if selected then [ HH.ClassName "font-medium" ] else []
 
     checkmarkClass :: Array HH.ClassName
     checkmarkClass =
-      (HH.ClassName <$> [ "mr-2", "text-green" ])
+      (HH.ClassName <$> [ "mr-2", "text-green" ]) -- TODO text-green
       <> if selected then [] else [ HH.ClassName "invisible" ]
 
 -- Provided an array of items and any additional HTML, renders the container
@@ -203,7 +86,7 @@ itemContainer highlightIndex itemsHTML addlHTML =
     ( renderItems <> addlHTML )
   where
     hover :: Int -> Array HH.ClassName
-    hover i = if highlightIndex == Just i then HH.ClassName <$> [ "bg-grey-lighter" ] else mempty
+    hover i = if highlightIndex == Just i then HH.ClassName <$> [ "bg-grey-lighter" ] else mempty -- TODO 
 
     renderItems :: Array (HH.HTML p (Select.Action action))
     renderItems =
@@ -220,29 +103,6 @@ itemContainer highlightIndex itemsHTML addlHTML =
           itemsHTML
       ]
 
--- Provided an array of selection items, renders them in a container
--- Make sure the array of items includes the correct click handlers
-selectionContainer :: ∀ p i. Array (HH.HTML p i) -> HH.HTML p i
-selectionContainer []   =
-  HH.div_ []
-selectionContainer html =
-  HH.div
-  [ HP.classes selectionContainerClasses ]
-  [ HH.ul
-    [ HP.classes ulClasses ]
-    $ html <#>
-    ( \h ->
-        HH.li
-          [ HP.classes (HH.ClassName "py-2" : liClasses) ]
-          [ h ]
-    )
-  ]
-
-sectionClasses :: Array HH.ClassName
-sectionClasses = HH.ClassName <$>
-  [ "my-8"
-  ]
-
   button :: Int -> HH.HTML p i
   button btn =
     HH.button
@@ -250,18 +110,8 @@ sectionClasses = HH.ClassName <$>
     [ HH.span_
       [ HH.text $ show btn ]
     ]
-    where
-    disabled =
-      [ Ocelot.HTML.Properties.css "border border-black disabled focus:outline-none inline-block text-center"
-      , Ocelot.HTML.Properties.style <<< Foreign.Object.fromHomogeneous
-        $ { "border-radius": "50%"
-          , "width": "2.5rem"
-          , "line-height": "2.5rem"
-          }
-      ]
-
     active =
-      [ Ocelot.HTML.Properties.css "inline-block hover:bg-grey hover:text-white text-center"
+      [ Ocelot.HTML.Properties.css "inline-block hover:bg-grey hover:text-white text-center" -- TODO bg-grey
       , Ocelot.HTML.Properties.style <<< Foreign.Object.fromHomogeneous
         $ { "border-radius": "50%"
           , "width": "2.5rem"
@@ -270,75 +120,14 @@ sectionClasses = HH.ClassName <$>
       , HE.onMouseDown $ query btn
       ]
 
-  ellipsis :: HH.HTML p i
-  ellipsis =
-    HH.span
-    [ Ocelot.HTML.Properties.css "mx-2"]
-    [ HH.text "…" ]
-
 bar :: ∀ p i. Ratio Number -> Array (HH.IProp HTMLdiv i) -> Array (HH.IProp HTMLspan i) -> HH.HTML p i
 bar r divProps spanProps =
   HH.div
-    ( [ css "bg-grey-light relative" ] <&> divProps )
-    [ HH.span
-      ( [ css "block", HP.attr (HH.AttrName "style") ("width: " <> value <> "%; text-indent: -9999px;") ] <&> spanProps )
-      [ HH.text $ "Progress: " <> value ]
-    ]
-  where
-    value :: String
-    value = show $ if percentage > 100.0 then 100.0 else percentage
-
-    percentage :: Number
-    percentage = numerator r / denominator r * 100.0
-
+    ( [ css "bg-grey-light relative" ] <&> divProps ) -- TODO bg-grey-light
 -- Defaults
 bar_ :: ∀ p i. Ratio Number -> HH.HTML p i
-bar_ r = bar r [] [ css "bg-blue" ]
+bar_ r = bar r [] [ css "bg-blue" ] -- TODO bg-blue
 
-
-singleTab
-  :: ∀ p i page
-   . Eq page
-  => page
-  -> Tab i page
-  -> HH.HTML p i
-singleTab activePage tab =
-  HH.li
-    [ HP.class_ $ HH.ClassName "mr-12" ]
-    [ HH.a
-      ( tab.props
-        <> [ HP.classes $ tabClasses <> conditionalTabClasses isActive ]
-      )
-      ( errorIcon
-        <>
-        [ HH.span
-          [ HP.classes tabTextClasses ]
-          [ HH.text tab.name ]
-        ]
-      )
-    ]
-  where
-
-
-pullVisibleProp
-  :: ∀ r i
-   . Array (HH.IProp ( visible :: Boolean | r ) i)
-  -> Tuple Boolean (Array (HH.IProp r i))
-pullVisibleProp = foldr f (Tuple false [])
-  where
-    f (HP.IProp (HC.Property "visible" x)) =
-      lmap $ const $ coerceExpanded x
-    f iprop = rmap $ (flip snoc) $ coerceR iprop
-
-    coerceExpanded :: HC.PropValue -> Boolean
-    coerceExpanded = unsafeCoerce
-
-    coerceR :: HH.IProp ( visible :: Boolean | r ) i -> HH.IProp r i
-    coerceR = unsafeCoerce
-
-
-tooltipClasses :: Array HH.ClassName
-tooltipClasses = HH.ClassName <$> classesArr <> [ "-my-8" ]
 
 trayOpenClasses :: Array HH.ClassName
 trayOpenClasses = HH.ClassName <$>
@@ -350,45 +139,20 @@ trayClosedClasses = HH.ClassName <$>
 
 calendarHeader :: forall m. CompositeComponentHTML m
 calendarHeader =
-  HH.div
-    [ css "flex text-grey-70" ]
-    ( headers <#>
-      \day ->
-        HH.div
-          [ css "w-14 h-14 flex items-center justify-center" ]
-          [ HH.text day ]
-    )
-  where
-    headers = [ "S", "M", "T", "W", "T", "F", "S" ]
-
     arrowButton q =
       Button.buttonClear
         [ HE.onClick $ S.Action <<< const q
         , css "text-grey-70 p-3"
         ]
 
-    -- Show the month and year
-    dateHeader =
-      HH.div
-        [ css "flex-1" ]
-        [ HH.text monthYear ]
-
 
 renderCalendar :: forall m. Year -> Month -> Array CalendarItem -> CompositeComponentHTML m
 renderCalendar y m calendarItems =
-  Layout.popover
-    ( SS.setContainerProps
-      [ HP.classes dropdownClasses ]
-    )
-    [ calendarNav y m
-    , calendarHeader
-    , HH.div_ $ renderRows $ rowsFromArray calendarItems
-    ]
   where
     dropdownClasses :: Array HH.ClassName
     dropdownClasses = HH.ClassName <$>
-      [ "pin-t"
-      , "pin-l"
+      [ "pin-t" -- TODO
+      , "pin-l" -- TODO
       , "p-6"
       , "bg-white"
       , "text-center"
@@ -411,98 +175,34 @@ renderItem index item =
           <> "transition-1/4 border border-white "
           <> "before:no-content before:transition-1/4 "
           <> "before:w-full before:h-full "
-          <> "before:absolute before:pin-t before:pin-l "
+          <> "before:absolute before:pin-t before:pin-l " -- TODO 
           <> (getCalendarStyles item)
       ]
     )
-    -- printDay will format our item correctly
-    [ HH.span
-      [ css (getLabelStyles item) ]
-      [ HH.text $ printDay item ]
-    ]
-  where
-    -- If the calendar item is selectable,
-    -- then augment the props with the correct click events.
-    -- if not, then just don't provide the props at all.
-    -- this is an easy way to "disable" functionality in the calendar.
-    maybeSetItemProps i (CalendarItem Selectable _ _ _) props =
-      SS.setItemProps i props
-    maybeSetItemProps _ _ props = props
-
-    -- Get the correct styles for a calendar item, dependent on its statuses
-    getCalendarStyles :: CalendarItem -> String
-    getCalendarStyles i
-      = trim $ getSelectableStyles i
-      <> " " <> getSelectedStyles i
-      <> " " <> getBoundaryStyles i
-      where
         getSelectableStyles :: CalendarItem -> String
         getSelectableStyles (CalendarItem NotSelectable _ _ _) =
           ""
         getSelectableStyles _ =
-          "cursor-pointer hover:border hover:border-blue-88"
+          "cursor-pointer hover:border hover:border-blue-88" -- TODO
 
         getSelectedStyles :: CalendarItem -> String
         getSelectedStyles (CalendarItem _ Selected _ _) =
-          "bg-blue-88 text-white before:scale-1"
+          "bg-blue-88 text-white before:scale-1" -- TODO
         getSelectedStyles _ =
           "before:scale-0"
 
         getBoundaryStyles :: CalendarItem -> String
         getBoundaryStyles (CalendarItem _ _ OutOfBounds _) =
-          "text-grey-90"
+          "text-grey-90" -- TODO
         getBoundaryStyles _ = mempty
 
     getLabelStyles :: CalendarItem -> String
     getLabelStyles = case _ of
       CalendarItem NotSelectable _ InBounds _ ->
-        "border-black strike-through"
+        "border-black strike-through" -- TODO 
       CalendarItem NotSelectable _ OutOfBounds _ ->
-        "border-grey-90 strike-through"
+        "border-grey-90 strike-through" -- TODO
       _ -> ""
-
-render :: forall m. MonadAff m => ComponentRender m
-render state =
-  HH.div
-    [ css "flex" ]
-    [ HH.div
-      [ css "w-1/2 mr-2" ]
-      [ HH.slot _datepicker unit DatePicker.component
-        { disabled: state.disabled
-        , interval: do
-            interval <- state.interval
-            pure
-              { start: interval.start <#> Date.DateTime.date
-              , end: interval.end <#> Date.DateTime.date
-              }
-        , selection: state.date
-        , targetDate: state.targetDate
-        }
-        HandleDate
-      ]
-    , HH.div
-      [ css "flex-1" ]
-      [ HH.slot _timepicker unit TimePicker.component
-        { disabled: state.disabled
-        , interval: do
-            interval <- state.interval
-            pure
-              { start:
-                  if (interval.start <#> Date.DateTime.date) == state.date then
-                    interval.start <#> Date.DateTime.time
-                  else
-                    Nothing
-              , end:
-                  if (interval.end <#> Date.DateTime.date) == state.date then
-                    interval.end <#> Date.DateTime.time
-                  else
-                    Nothing
-              }
-        , selection: state.time
-        }
-        HandleTime
-      ]
-    ]
 
 
     ipropIdle :: Array (Halogen.HTML.Properties.IProp HTMLdiv Action)
@@ -516,33 +216,23 @@ ipropIdle =
   ]
   where
   cssIdle :: String
-  cssIdle = "bg-grey-70-a40 p-10"
+  cssIdle = "bg-grey-70-a40 p-10" -- TODO
 
   styleIdle :: Foreign.Object.Object String
   styleIdle =
     Foreign.Object.fromHomogeneous
-      { outline: "2px dashed #8f9eb3"
+      { outline: "2px dashed #8f9eb3" -- REVIEW is this just used as inline style? on SVG for example?
       , "outline-offset": "-10px"
       , transition: "outline-offset .15s ease-in-out, background-color .15s linear"
       }
 
-ipropDragOver :: Array (Halogen.HTML.Properties.IProp HTMLdiv Action)
-ipropDragOver =
-  [ Ocelot.HTMl.Properties.css cssDragOver
-  , Ocelot.HTMl.Properties.style styleDragOver
-  , Ocelot.HTML.Events.onDragEnd (PreventDefault <<< Web.HTML.Event.DragEvent.toEvent)
-  , Ocelot.HTML.Events.onDragLeave DragLeave
-  , Ocelot.HTML.Events.onDragOver (PreventDefault <<< Web.HTML.Event.DragEvent.toEvent)
-  , Ocelot.HTML.Events.onDrop DropFile
-  ]
-  where
   cssDragOver :: String
-  cssDragOver = "bg-grey-95 p-10"
+  cssDragOver = "bg-grey-95 p-10" -- TODO
 
   styleDragOver :: Foreign.Object.Object String
   styleDragOver =
     Foreign.Object.fromHomogeneous
-    { outline: "2px dashed #8f9eb3"
+    { outline: "2px dashed #8f9eb3"-- REVIEW is this just used as inline style? on SVG for example?
     , "outline-offset": "-20px"
     , transition: "outline-offset .15s ease-in-out, background-color .15s linear"
     }
@@ -552,75 +242,13 @@ ipropDragOver =
   ComponentHTML m
 renderIcon =
   Halogen.HTML.div
-    [ Ocelot.HTMl.Properties.css "text-grey-50 text-center w-full" ]
+    [ Ocelot.HTMl.Properties.css "text-grey-50 text-center w-full" ] -- TODO
     [ Ocelot.Block.Icon.download
       [ Ocelot.HTMl.Properties.css "text-5xl" ]
     ]
 
-classify
-  :: String
-  -> String
-classify str
-  | startsWith "p" str && not null (classifySide $ drop 1 str)
-    = "padding" <-> classifySide (drop 1 str)
-  | startsWith "m" str && not null (classifySide $ drop 1 str)
-    = "margin" <-> classifySide (drop 1 str)
-  | startsWith "-m" str && not null (classifySide $ drop 2 str)
-    = "margin" <-> classifySide (drop 2 str)
-  | startsWith "min-" str = "min" <-> classify (drop 4 str)
-  | startsWith "max-" str = "max" <-> classify (drop 4 str)
-  | startsWith "w-" str = "width"
-  | startsWith "h-" str = "height"
-  | startsWith "overflow-" str && (classifyOverflow $ drop 9 str) /= drop 9 str
-    = "overflow" <-> (classifyOverflow $ drop 9 str)
-  | otherwise = str
-
-classifySide
-  :: String
-  -> String
-classifySide str
-  | startsWith "t-" str = "top"
-  | startsWith "r-" str = "right"
-  | startsWith "b-" str = "bottom"
-  | startsWith "l-" str = "left"
-  | startsWith "x-" str = "horizontal"
-  | startsWith "y-" str = "vertical"
-  | startsWith "-" str = "all"
-  | otherwise = ""
-
-classifyOverflow
-  :: String
-  -> String
-classifyOverflow str
-  | startsWith "x-" str = "horizontal" <-> (classifyOverflow $ drop 2 str)
-  | startsWith "y-" str = "vertical" <-> (classifyOverflow $ drop 2 str)
-  | elem str ["auto", "hidden", "visible", "scroll"] = ""
-  | otherwise = str
 
 
-renderItem :: forall m. Int -> TimeUnit -> CompositeComponentHTML m
-renderItem index item =
-  HH.div
-  -- Here's the place to use info from the item to render it in different
-  -- states.
-  -- if highlightedIndex == Just index then 'highlight' else 'dont'
-    ( maybeSetItemProps index item
-      [ css
-        $ trim
-        $ "relative p-3 transition-1/4 "
-          <> (getTimeStyles item)
-      ]
-    )
-    -- printDay will format our item correctly
-    [ HH.text $ printTime item ]
-  where
-    -- If the timeunit is selectable,
-    -- then augment the props with the correct click events.
-    -- if not, then just don't provide the props at all.
-    -- this is an easy way to "disable" functionality in the calendar.
-    maybeSetItemProps i (TimeUnit Selectable _ _) props =
-      Setters.setItemProps i props
-    maybeSetItemProps _ _ props = props
 
     -- Get the correct styles for a time unit, dependent on its statuses
     getTimeStyles :: TimeUnit -> String
@@ -632,11 +260,11 @@ renderItem index item =
         getSelectableStyles (TimeUnit NotSelectable _ _) =
           mempty
         getSelectableStyles _ =
-          "cursor-pointer hover:bg-grey-97"
+          "cursor-pointer hover:bg-grey-97" -- TODO
 
         getSelectedStyles :: TimeUnit -> String
         getSelectedStyles (TimeUnit _ Selected _) =
-          "text-blue-88"
+          "text-blue-88" -- TODO
         getSelectedStyles _ =
           mempty
 
@@ -652,7 +280,7 @@ inputProps disabled iprops = if disabled
     iprops' = 
       [ Halogen.HTML.Properties.disabled disabled
       , Halogen.HTML.Properties.autocomplete false
-      , Ocelot.HTML.Properties.css "focus:next:text-blue-88" 
+      , Ocelot.HTML.Properties.css "focus:next:text-blue-88" -- TODO
       ] 
       <&> iprops
 
