@@ -28,9 +28,9 @@ toastContainerClasses = HH.ClassName <$>
   , "transition-1/2-out"
   , "items-center"
   , "fixed"
-  , "pin-l"
-  , "pin-r"
-  , "pin-b"
+  , "left-0"
+  , "right-0"
+  , "bottom-0"
   , "z-10"
   ]
 

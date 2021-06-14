@@ -584,8 +584,8 @@ renderCalendar y m calendarItems =
   where
     dropdownClasses :: Array HH.ClassName
     dropdownClasses = HH.ClassName <$>
-      [ "pin-t"
-      , "pin-l"
+      [ "top-0"
+      , "left-0"
       , "p-6"
       , "bg-white"
       , "text-center"
@@ -608,7 +608,7 @@ renderItem index item =
           <> "transition-1/4 border border-white "
           <> "before:no-content before:transition-1/4 "
           <> "before:w-full before:h-full "
-          <> "before:absolute before:pin-t before:pin-l "
+          <> "before:absolute before:top-0 before:left-0 "
           <> (getCalendarStyles item)
       ]
     )

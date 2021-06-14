@@ -90,7 +90,7 @@ contentClasses status_ = contentSharedClasses <>
       ]
     Expanded -> HH.ClassName <$>
       [ "max-h-full"
-      , "opacity-1"
+      , "opacity-100"
       , "transition-1/2-out"
       ]
   )

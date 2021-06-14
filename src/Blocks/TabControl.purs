@@ -35,7 +35,6 @@ innerClasses = HH.ClassName <$>
   , "mx-auto"
   , "flex"
   , "h-16"
-  , "list-reset"
   ]
 
 tabClasses :: Array HH.ClassName

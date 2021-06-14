@@ -24,8 +24,8 @@ trayClasses = HH.ClassName <$>
   [ "fixed"
   , "bg-white"
   , "p-6"
-  , "pin-b"
-  , "pin-l"
+  , "bottom-0"
+  , "left-0"
   , "shadow"
   , "border-t"
   , "border-grey-90"
@@ -37,11 +37,11 @@ trayClasses = HH.ClassName <$>
 
 trayOpenClasses :: Array HH.ClassName
 trayOpenClasses = HH.ClassName <$>
-  [ "pin-b" ]
+  [ "bottom-0" ]
 
 trayClosedClasses :: Array HH.ClassName
 trayClosedClasses = HH.ClassName <$>
-  [ "-pin-b-40" ]
+  [ "-bottom-40" ]
 
 tray
   :: ∀ p i

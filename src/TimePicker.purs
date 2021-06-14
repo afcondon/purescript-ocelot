@@ -174,8 +174,8 @@ dropdownClasses = HH.ClassName <$>
   [ "max-h-80"
   , "w-full"
   , "overflow-y-scroll"
-  , "pin-t"
-  , "pin-l"
+  , "top-0"
+  , "left-0"
   , "bg-white"
   , "text-center"
   ]

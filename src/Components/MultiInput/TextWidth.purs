@@ -134,8 +134,8 @@ ghostClasses =
   , "inline-block"
   , "invisible"
   , "overflow-hidden"
-  , "pin-t"
-  , "whitespace-no-wrap"
+  , "top-0"
+  , "whitespace-nowrap"
   ]
     <#> Halogen.ClassName
 

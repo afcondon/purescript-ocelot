@@ -27,10 +27,10 @@ hover props anchors html hoverHtml =
   where
     anchorClasses :: Array HoverAnchor -> Array HH.ClassName
     anchorClasses = map $ HH.ClassName <<< anchorClass
-    anchorClass Left = "pin-r-full"
-    anchorClass Right = "pin-l-full"
-    anchorClass Top = "pin-b-full"
-    anchorClass Bottom = "pin-t-full"
+    anchorClass Left = "left-full"
+    anchorClass Right = "right-full"
+    anchorClass Top = "bottom-full"
+    anchorClass Bottom = "top-full"
 
 hover_
   :: ∀ p i

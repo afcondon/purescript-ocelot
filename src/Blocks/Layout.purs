@@ -32,8 +32,8 @@ popover_ = popover []
 stickyClasses :: Array HH.ClassName
 stickyClasses = HH.ClassName <$>
   [ "fixed"
-  , "pin-t"
-  , "pin-x"
+  , "top-0"
+  , "inset-x-0"
   , "w-full"
   , "shadow-md"
   , "z-60"

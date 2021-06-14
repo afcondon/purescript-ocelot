@@ -149,14 +149,14 @@ backgroundClasses =
   [ "bg-black-modal-a90"
   , "fade-in"
   , "fixed"
-  , "pin"
+  , "inset-0"
   , "z-10"
   ]
     <#> Halogen.HTML.ClassName
 
 backgroundOpenClasses :: Array Halogen.HTML.ClassName
 backgroundOpenClasses =
-  [ "opacity-1"
+  [ "opacity-100"
   , "visible"
   ]
     <#> Halogen.HTML.ClassName
@@ -180,7 +180,7 @@ panelClasses =
 
 panelLeftClasses :: Array Halogen.HTML.ClassName
 panelLeftClasses =
-  [ "pin-l"
+  [ "left-0"
   ]
     <#> Halogen.HTML.ClassName
 
@@ -192,7 +192,7 @@ panelLeftCss =
 
 panelRightClasses :: Array Halogen.HTML.ClassName
 panelRightClasses =
-  [ "pin-r"
+  [ "right-0"
   ]
     <#> Halogen.HTML.ClassName
 

@@ -190,7 +190,7 @@ renderUserImg (User { eyeColor, hairColor, skinColor }) =
       )
     , HH.span
       [ HP.classes $ HH.ClassName <$>
-        [ "pin-b"
+        [ "bottom-0"
         , "h-1"
         , "w-full"
         , "bg-" <> colorToCSSColor skinColor2

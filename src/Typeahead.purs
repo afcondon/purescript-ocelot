@@ -713,7 +713,7 @@ renderHeaderSearchDropdown defaultLabel resetLabel renderItem renderFuzzy st =
   renderSearchDropdown resetLabel label renderFuzzy st
   where
     label = Halogen.HTML.span
-      [ Ocelot.HTML.Properties.css "text-white text-3xl font-thin cursor-pointer whitespace-no-wrap" ]
+      [ Ocelot.HTML.Properties.css "text-white text-3xl font-thin cursor-pointer whitespace-nowrap" ]
       [ Data.Maybe.maybe (Halogen.HTML.text defaultLabel) (Halogen.HTML.fromPlainHTML <<< renderItem) st.selected
       , Ocelot.Block.Icon.collapse [ Ocelot.HTML.Properties.css "ml-3 text-xl text-grey-50 align-middle" ]
       ]
@@ -730,7 +730,7 @@ renderMulti iprops renderItem renderContainer st =
     [ if (not disabled && not Data.Array.null st.selected)
         then
           Halogen.HTML.a
-            [ Ocelot.HTML.Properties.css "absolute -mt-7 pin-r underline text-grey-70 cursor-pointer"
+            [ Ocelot.HTML.Properties.css "absolute -mt-7 right-0 underline text-grey-70 cursor-pointer"
             , Halogen.HTML.Events.onClick \_ -> Select.Action $ RemoveAll
             ]
             [ Halogen.HTML.text "Remove All" ]
@@ -879,7 +879,7 @@ renderToolbarSearchDropdown defaultLabel resetLabel renderItem renderFuzzy st =
     label = Ocelot.Block.ItemContainer.dropdownButton
       Halogen.HTML.span
       [ Halogen.HTML.Properties.classes
-        $ Halogen.HTML.ClassName "whitespace-no-wrap"
+        $ Halogen.HTML.ClassName "whitespace-nowrap"
         : Ocelot.Block.Button.buttonMainClasses
         <> Ocelot.Block.Button.buttonClearClasses
       ]

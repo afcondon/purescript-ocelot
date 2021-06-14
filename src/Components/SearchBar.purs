@@ -240,7 +240,7 @@ render st@{ query, open } =
        , "hover:text-grey-50"
        , "text-xs"
        , "transition-1/4"
-       , "flex-shrink"
+       , "flex-initial"
        ]
 
      buttonCondClasses =

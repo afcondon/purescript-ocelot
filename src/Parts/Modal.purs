@@ -87,7 +87,7 @@ type HeaderProps p i =
 backgroundClasses :: Array HH.ClassName
 backgroundClasses = HH.ClassName <$>
   [ "fixed"
-  , "pin"
+  , "inset-0"
   , "bg-black-modal-a90"
   , "fade-in"
   , "z-10"
@@ -97,8 +97,8 @@ backgroundClasses = HH.ClassName <$>
 modalClasses :: Array HH.ClassName
 modalClasses = HH.ClassName <$>
   [ "absolute"
-  , "pin-x"
-  , "pin-t"
+  , "inset-x-0"
+  , "top-0"
   , "my-20"
   , "m-auto"
   , "max-w-lg"

@@ -21,7 +21,6 @@ menuClasses = HH.ClassName <$>
   [ "bg-white"
   , "text-black-20"
   , "border"
-  , "list-reset"
   , "rounded"
   , "shadow"
   , "absolute"
@@ -33,8 +32,8 @@ dropdownClasses :: Array HH.ClassName
 dropdownClasses = menuClasses <>
   ( HH.ClassName <$>
     [ "absolute"
-    , "pin-t-full"
-    , "pin-l"
+    , "top-full"
+    , "left-0"
     , "max-h-160"
     , "overflow-y-auto"
     ]
@@ -44,8 +43,8 @@ droprightClasses :: Array HH.ClassName
 droprightClasses = menuClasses <>
   ( HH.ClassName <$>
     [ "absolute"
-    , "pin-t"
-    , "pin-l-full"
+    , "top-0"
+    , "left-full"
     ]
   )
 
@@ -74,13 +73,13 @@ itemContainerClasses = baseClasses <>
     , "overflow-y-auto"
     , "z-50"
     , "border-b-2"
-    , "pin-t-full"
-    , "pin-l"
+    , "top-full"
+    , "left-0"
     ]
   )
 
 ulClasses :: Array HH.ClassName
-ulClasses = HH.ClassName <$> [ "list-reset" ]
+ulClasses = HH.ClassName <$> [ ]
 
 liClasses :: Array HH.ClassName
 liClasses = HH.ClassName <$>
