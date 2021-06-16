@@ -5,7 +5,7 @@
   "scripts": {
     "build": "spago build --path 'ui-guide/**/*.purs' --path 'src/**/*.purs'",
     "bundle": "spago bundle-app --main Main --to dist/bundle.js",
-    "build-css": "postcss css/src/index.css -o dist/cn-tailwind.css",
+    "build-css": "postcss css/src/index.css -o dist/cn-tailwind.css"
   },
   "devDependencies": {
     "purescript": "0.14.2",
